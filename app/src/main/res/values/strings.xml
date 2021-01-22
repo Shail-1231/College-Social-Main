@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">College Social</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="about_us">Follow us on instagram for regular updates. DM for suggestions regarding the application. You can even mail us at projectcsoc@gmail.com.</string>
+    <string name="insta">https://instagram.com/collegesocials?igshid=1miwj8g53917n</string>
+</resources>
