@@ -5,7 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:orientation="vertical">
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/slider_view"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="4dp"
+        app:sliderIndicatorRadius="1.5dp"
+        app:sliderIndicatorSelectedColor="#636363"
+        app:sliderIndicatorUnselectedColor="#ffff"
+        app:sliderScrollTimeInSec="2"
+        app:sliderStartAutoCycle="true" />
 
     <GridView
         android:id="@+id/grid"

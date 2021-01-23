@@ -1,102 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AboutUsFragment"
-    android:background="@color/main">
+    android:background="@color/main"
+    tools:context=".AboutUsFragment">
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-            app:cardCornerRadius="30dp"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@color/pastelcolor1">
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@color/pastelcolor1"
+                app:cardCornerRadius="30dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/pastelcolor1"
+                    android:fontFamily="@font/michroma"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="About Us"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/pastelcolor1"
+                android:layout_marginTop="17dp"
                 android:fontFamily="@font/michroma"
                 android:gravity="center"
-                android:padding="15dp"
-                android:text="About Us"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-        </androidx.cardview.widget.CardView>
+                android:padding="30dp"
+                android:text="ABCD"
+                android:textColor="#fff"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
+            <View
+                android:id="@+id/segment"
+                android:layout_width="375dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@color/pastelcolor1" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="17dp"
-            android:fontFamily="@font/michroma"
-            android:gravity="center"
-            android:padding="30dp"
-            android:text="ABCD"
-            android:textColor="#fff"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@color/pastelcolor1"
+                app:cardCornerRadius="30dp">
 
-        <View
-            android:id="@+id/segment"
-            android:layout_width="375dp"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@color/pastelcolor1" />
-
-        <androidx.cardview.widget.CardView
-            app:cardCornerRadius="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@color/pastelcolor1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/pastelcolor1"
+                    android:fontFamily="@font/michroma"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="Contact Us"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </androidx.cardview.widget.CardView>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/pastelcolor1"
+                android:layout_marginTop="17dp"
                 android:fontFamily="@font/michroma"
                 android:gravity="center"
-                android:padding="15dp"
-                android:text="Contact Us"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-        </androidx.cardview.widget.CardView>
+                android:padding="20dp"
+                android:text="@string/about_us"
+                android:textColor="#fff"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="17dp"
-            android:fontFamily="@font/michroma"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="@string/about_us"
-            android:textColor="#fff"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/img_insta"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/instagram"
+                android:tag="@string/insta" />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/img_insta"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:src="@drawable/instagram"
-            android:tag="@string/insta" />
-    </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>
