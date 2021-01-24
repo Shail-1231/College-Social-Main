@@ -99,8 +99,10 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/instagram"
-                android:tag="@string/insta" />
+                android:clickable="true"
+                android:tag="@string/insta"
+                android:focusable="true"
+                android:src="@drawable/instagram" />
         </LinearLayout>
 
     </ScrollView>

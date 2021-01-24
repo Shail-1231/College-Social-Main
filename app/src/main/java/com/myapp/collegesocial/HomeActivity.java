@@ -19,8 +19,12 @@ public class HomeActivity extends AppCompatActivity {
     int[] blurImages = {R.drawable.aublur, R.drawable.nirmablur, R.drawable.ljblur, R.drawable.pdpublur};
     SliderView sliderView;
     int[] mainEventImages = {R.drawable.convocation, R.drawable.ingenium};
+    String[] clubAu = {"Sports", "Music", "Dance", "Fitness", "Photography", "Literature", "Quiz"};
+    String[] clubNirma = {};
+    String[] clubPDPU = {};
+    String[] clubLJ = {};
     SliderAdp sliderAdp;
-    CardView cardView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +44,16 @@ public class HomeActivity extends AppCompatActivity {
         sliderView.startAutoCycle();
 
         gridView = findViewById(R.id.grid);
-        ArrayList<CollegeModel> collegeModelArrayList = new ArrayList<CollegeModel>();
+        ArrayList<CollegeModel> collegeModelArrayList = new ArrayList<>();
 
-        for(int i = 0; i < colleges.length; i++)
-        {
+        for (int i = 0; i < colleges.length; i++) {
             CollegeModel model = new CollegeModel(colleges[i], blurImages[i]);
             collegeModelArrayList.add(model);
         }
 
         MyCollegeAdapter myCollegeAdapter = new MyCollegeAdapter(this, collegeModelArrayList);
         gridView.setAdapter(myCollegeAdapter);
+
+
     }
 }
