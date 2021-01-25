@@ -15,16 +15,22 @@
         android:layout_marginTop="100dp"
         android:src="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/tv_splash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="70dp"
-        android:fontFamily="@font/michroma"
-        android:text="@string/app_name"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    <!-- <TextView
+         android:id="@+id/tv_splash"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginTop="70dp"
+         android:fontFamily="@font/michroma"
+         android:text="@string/app_name"
+         android:textColor="#000"
+         android:textSize="30sp"
+         android:textStyle="bold" />-->
 
+   <com.myapp.collegesocial.GIFImageView
+       android:id="@+id/gif_title"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:layout_marginTop="70dp"/>
 </LinearLayout>

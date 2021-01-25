@@ -54,6 +54,5 @@ public class HomeActivity extends AppCompatActivity {
         MyCollegeAdapter myCollegeAdapter = new MyCollegeAdapter(this, collegeModelArrayList);
         gridView.setAdapter(myCollegeAdapter);
 
-
     }
 }

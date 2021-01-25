@@ -24,22 +24,22 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        GIFImageView gifImageView = findViewById(R.id.gif_title);
+        gifImageView.setGifImageResource(R.drawable.source);
         topAnim = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.bottom_animation);
 
         logo = findViewById(R.id.logo_splash);
-        title = findViewById(R.id.tv_splash);
 
         logo.setAnimation(topAnim);
-        title.setAnimation(bottomAnim);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreenActivity.this, NavigationDrawerActivity.class);
+                Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
                 startActivity(i);
                 finish();
             }
-        },time);
+        }, time);
     }
 }
