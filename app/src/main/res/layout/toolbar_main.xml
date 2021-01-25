@@ -16,12 +16,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/main1"
+            android:background="@color/ic_launcher_background"
             app:popupTheme="@style/Theme.CollegeSocial.PopupOverlay">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:background="@color/ic_launcher_background"
                 android:src="@drawable/logo" />
 
             <TextView

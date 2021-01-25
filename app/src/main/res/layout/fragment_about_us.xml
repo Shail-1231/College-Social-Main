@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main"
+    android:background="@color/pastelcolor4"
     tools:context=".AboutUsFragment">
 
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/pastelcolor4">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -29,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:background="@color/pastelcolor1"
+                    android:background="@color/ic_launcher_background"
                     android:fontFamily="@font/michroma"
                     android:gravity="center"
                     android:padding="15dp"
@@ -72,7 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:background="@color/pastelcolor1"
+                    android:background="@color/ic_launcher_background"
                     android:fontFamily="@font/michroma"
                     android:gravity="center"
                     android:padding="15dp"
@@ -100,9 +101,9 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:clickable="true"
-                android:tag="@string/insta"
                 android:focusable="true"
-                android:src="@drawable/instagram" />
+                android:src="@drawable/instagram"
+                android:tag="@string/insta" />
         </LinearLayout>
 
     </ScrollView>

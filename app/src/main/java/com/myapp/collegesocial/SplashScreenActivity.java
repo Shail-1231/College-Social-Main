@@ -15,7 +15,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     ImageView logo;
     TextView title;
-    int time = 3000;
+    int time = 2000;
     Animation topAnim, bottomAnim;
 
     @Override

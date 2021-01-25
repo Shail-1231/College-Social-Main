@@ -6,13 +6,20 @@
     android:background="@color/pastelcolor4"
     android:orientation="vertical"
     tools:context=".SplashScreenActivity">
+    <com.myapp.collegesocial.GIFImageView
+        android:id="@+id/gif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="210dp"
+        android:background="@color/pastelcolor4" />
 
     <ImageView
         android:id="@+id/logo_splash"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="-400dp"
         android:src="@drawable/logo" />
 
     <!-- <TextView
@@ -27,10 +34,5 @@
          android:textSize="30sp"
          android:textStyle="bold" />-->
 
-   <com.myapp.collegesocial.GIFImageView
-       android:id="@+id/gif_title"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_gravity="center"
-       android:layout_marginTop="70dp"/>
+
 </LinearLayout>

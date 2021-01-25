@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main1"
+    android:background="@color/pastelcolor4"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".LoginActivity">
@@ -15,9 +15,20 @@
         android:layout_marginTop="70dp"
         android:fontFamily="@font/michroma"
         android:gravity="center_horizontal"
-        android:text="Login"
+        android:text="Welcome to"
         android:textColor="#fff"
-        android:textSize="50sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/michroma"
+        android:gravity="center_horizontal"
+        android:text="CollegeSocial"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
 
     <EditText
         android:id="@+id/edt_email_login"
@@ -64,7 +75,9 @@
             android:background="@drawable/edt_bg"
             android:fontFamily="@font/michroma"
             android:text="Sign Up"
+            android:textAllCaps="false"
             android:textColor="#fff"
+            app:backgroundTint="#DB1D45"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
@@ -76,8 +89,10 @@
             android:background="@drawable/edt_bg"
             android:fontFamily="@font/michroma"
             android:text="Sign In"
+            android:textAllCaps="false"
             android:textColor="#fff"
             android:textStyle="bold"
+            app:backgroundTint="#DB1D45"
             tools:ignore="HardcodedText" />
 
     </LinearLayout>

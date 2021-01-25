@@ -65,7 +65,7 @@ public class GIFImageView extends View {
 
             int duration = mMovie.duration();
             if (duration == 0) {
-                duration = 1000;
+                duration = 2000;
             }
 
             int relTime = (int) ((now - mStart) % duration);

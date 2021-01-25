@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TabActivity"
-    android:orientation="vertical">
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".TabActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/main1"
+        android:background="@color/ic_launcher_background"
         app:tabIndicatorColor="#fff"
         app:tabIndicatorHeight="4dp"
         app:tabSelectedTextColor="#fff"
