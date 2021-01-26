@@ -2,7 +2,11 @@ package com.myapp.collegesocial;
 
 public class UserModel {
 
-    String email, password, id;
+    String name, email, password, id;
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
 
     public String getId() {
         return id;
