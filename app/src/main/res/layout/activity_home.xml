@@ -8,7 +8,9 @@
     tools:context=".HomeActivity"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar_main"/>
+    <include
+        layout="@layout/toolbar_main"
+        android:background="@color/ic_launcher_background" />
 
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/slider_view"
