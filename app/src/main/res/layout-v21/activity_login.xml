@@ -103,7 +103,7 @@
                     android:textColor="#fff"
                     android:textStyle="bold"
                     app:backgroundTint="#DB1D45"
-                    tools:ignore="HardcodedText"/>
+                    tools:ignore="HardcodedText" />
 
                 <Button
                     android:id="@+id/btn_login_signIn"
@@ -113,6 +113,7 @@
                     android:background="@drawable/edt_bg"
                     android:fontFamily="@font/michroma"
                     android:text="Sign In"
+                    android:elevation="10dp"
                     android:textAllCaps="false"
                     android:textColor="#fff"
                     android:textStyle="bold"
