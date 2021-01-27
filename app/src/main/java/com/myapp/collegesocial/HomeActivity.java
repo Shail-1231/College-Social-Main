@@ -19,7 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     int[] blurImages = {R.drawable.aublur, R.drawable.nirmablur, R.drawable.ljblur, R.drawable.pdpublur};
     SliderView sliderView;
     int[] mainEventImages = {R.drawable.convocation, R.drawable.ingenium};
-    String[] clubAu = {"Sports", "Music", "Dance", "Fitness", "Photography", "Literature", "Quiz"};
+    String[] clubAu = {"Art and culture", "Sports and fitness", "Technical and management", "Extra"};
     String[] clubNirma = {};
     String[] clubPDPU = {};
     String[] clubLJ = {};
