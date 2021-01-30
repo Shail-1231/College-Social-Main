@@ -52,8 +52,7 @@ public class SignInActivity extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(em, pass).addOnCompleteListener(SignInActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful())
-                        {
+                        if (task.isSuccessful()) {
 
                             String uid = mAuth.getUid();
                             databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -65,17 +64,17 @@ public class SignInActivity extends AppCompatActivity {
                                     String email = userModel.getEmail();
                                     String password = userModel.getPassword();
 
-                                    SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
+                                    SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("KEY_Name",name);
-                                    editor.putString("KEY_Email",email);
-                                    editor.putString("KEY_Password",password);
+                                    editor.putString("KEY_Name", name);
+                                    editor.putString("KEY_Email", email);
+                                    editor.putString("KEY_Password", password);
                                     editor.commit();
 
 
                                     Intent i = new Intent(SignInActivity.this, HomeActivity.class);
                                     startActivity(i);
-finish();
+                                    finish();
 
                                 }
 
@@ -84,10 +83,7 @@ finish();
 
                                 }
                             });
-                             }
-
-                        else
-                        {
+                        } else {
                             Toast.makeText(SignInActivity.this, "The user is not registered", Toast.LENGTH_LONG).show();
                         }
                     }

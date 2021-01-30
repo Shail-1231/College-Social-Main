@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 String em = email.getText().toString();
                 String pass = password.getText().toString();
 
+
                 if (pass.length() < 5) {
                     Toast.makeText(LoginActivity.this, "Enter password more than 5 characters", Toast.LENGTH_LONG).show();
                 }
@@ -72,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("KEY_FN",em);
                                 editor.putString("KEY_LN",pass);
                                 editor.commit();
+                                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                                startActivity(i);
                             }
                         }
                     });

@@ -25,7 +25,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         GIFImageView gifImageView = findViewById(R.id.gif_title);
         gifImageView.setGifImageResource(R.drawable.source);
@@ -37,12 +37,10 @@ public class SplashScreenActivity extends AppCompatActivity {
         logo.setAnimation(topAnim);
 
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
- sharedPreferences.getString("KEY_Name","");
-        strEmail =         sharedPreferences.getString("KEY_Email","");
-     strPassword =    sharedPreferences.getString("KEY_Password","");
-
-
+        SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
+        sharedPreferences.getString("KEY_Name", "");
+        strEmail = sharedPreferences.getString("KEY_Email", "");
+        strPassword = sharedPreferences.getString("KEY_Password", "");
 
 
         new Handler().postDelayed(new Runnable() {
@@ -50,19 +48,14 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
 
 
-                if (strEmail.equals("") && strPassword.equals("")){
-
-
-                    Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                    startActivity(i);
-                    finish();
-                }else {
-
-
-                    Intent i = new Intent(SplashScreenActivity.this, NavigationDrawerActivity.class);
-                    startActivity(i);
-                    finish();
+                Intent i;
+                if (strEmail.equals("") && strPassword.equals("")) {
+                    i = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                } else {
+                    i = new Intent(SplashScreenActivity.this, NavigationDrawerActivity.class);
                 }
+                startActivity(i);
+                finish();
             }
         }, time);
     }

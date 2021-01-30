@@ -33,7 +33,6 @@ public class HomeActivity extends AppCompatActivity {
 
         sliderView = findViewById(R.id.slider_view);
 
-
         sliderAdp = new SliderAdp(mainEventImages);
 
         sliderView.setSliderAdapter(sliderAdp);

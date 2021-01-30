@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,9 +31,12 @@ import androidx.appcompat.widget.Toolbar;
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Toolbar toolbar;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
+    TextView name;
+    private String strEmail;
+    private String strPassword;
+    private String strName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,13 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
         navigationView = findViewById(R.id.nav_view);
         drawerLayout = findViewById(R.id.drawer_layout);
+        name = findViewById(R.id.tv_name_nav);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
+        strName = sharedPreferences.getString("KEY_Name", "");
+        strEmail = sharedPreferences.getString("KEY_Email", "");
+        strPassword = sharedPreferences.getString("KEY_Password", "");
+
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
                 toolbar, R.string.nav_app_bar_open_drawer_description,
