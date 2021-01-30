@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastelcolor4"
+    android:background="#212121"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".LoginActivity">
@@ -52,7 +52,7 @@
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textSize="20sp"
-                tools:ignore="HardcodedText"/>
+                tools:ignore="HardcodedText" />
 
 
             <EditText
