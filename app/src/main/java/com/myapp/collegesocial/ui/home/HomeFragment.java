@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,24 +13,57 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.myapp.collegesocial.CollegeModel;
+import com.myapp.collegesocial.MyCollegeAdapter;
 import com.myapp.collegesocial.R;
+import com.myapp.collegesocial.SliderAdp;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
+    GridView gridView;
+    String[] colleges = {"Ahmedabad University", "Nirma University", "LJ University", "PDPU"};
+    int[] blurImages = {R.drawable.aublur, R.drawable.nirmablur, R.drawable.ljblur, R.drawable.pdpublur};
+    SliderView sliderView;
+    int[] mainEventImages = {R.drawable.convocation, R.drawable.ingenium};
+    String[] clubAu = {"Art and culture", "Sports and fitness", "Technical and management", "Extra"};
+    String[] clubNirma = {};
+    String[] clubPDPU = {};
+    String[] clubLJ = {};
+    SliderAdp sliderAdp;
 
-    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        View root = inflater.inflate(R.layout.activity_home, container, false);
+
+        sliderView = root.findViewById(R.id.slider_view);
+
+        sliderAdp = new SliderAdp(mainEventImages);
+
+        sliderView.setSliderAdapter(sliderAdp);
+
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
+
+        sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
+
+        sliderView.startAutoCycle();
+
+        gridView = root.findViewById(R.id.grid);
+        ArrayList<CollegeModel> collegeModelArrayList = new ArrayList<>();
+
+        for (int i = 0; i < colleges.length; i++) {
+            CollegeModel model = new CollegeModel(colleges[i], blurImages[i]);
+            collegeModelArrayList.add(model);
+        }
+
+        MyCollegeAdapter myCollegeAdapter = new MyCollegeAdapter(getActivity(), collegeModelArrayList);
+        gridView.setAdapter(myCollegeAdapter);
+
         return root;
     }
 }

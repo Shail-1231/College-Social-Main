@@ -3,6 +3,7 @@ package com.myapp.collegesocial;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -17,6 +18,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     TextView title;
     int time = 2000;
     Animation topAnim, bottomAnim;
+    private String strPassword;
+    private String strEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +36,33 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         logo.setAnimation(topAnim);
 
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
+ sharedPreferences.getString("KEY_Name","");
+        strEmail =         sharedPreferences.getString("KEY_Email","");
+     strPassword =    sharedPreferences.getString("KEY_Password","");
+
+
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                startActivity(i);
-                finish();
+
+
+                if (strEmail.equals("") && strPassword.equals("")){
+
+
+                    Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                }else {
+
+
+                    Intent i = new Intent(SplashScreenActivity.this, NavigationDrawerActivity.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         }, time);
     }

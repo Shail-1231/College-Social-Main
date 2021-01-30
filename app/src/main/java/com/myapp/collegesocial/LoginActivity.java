@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -66,6 +67,11 @@ public class LoginActivity extends AppCompatActivity {
                                 userModel.setPassword(pass);
                                 userModel.setId(id);
                                 databaseReference.child(id).setValue(userModel);
+                                SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("KEY_FN",em);
+                                editor.putString("KEY_LN",pass);
+                                editor.commit();
                             }
                         }
                     });
