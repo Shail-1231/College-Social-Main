@@ -3,6 +3,8 @@ package com.myapp.collegesocial;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -22,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
-    Button signUp;
+    Button signUp, signIn;
+    int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         name = findViewById(R.id.edt_name_login);
         mAuth = FirebaseAuth.getInstance();
         signUp = findViewById(R.id.btn_login_signUp);
+        signIn = findViewById(R.id.btn_login_signIn);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
@@ -44,10 +51,12 @@ public class LoginActivity extends AppCompatActivity {
                 String nm = name.getText().toString();
                 String em = email.getText().toString();
                 String pass = password.getText().toString();
+
+
                 if (pass.length() < 5) {
                     Toast.makeText(LoginActivity.this, "Enter password more than 5 characters", Toast.LENGTH_LONG).show();
-
-                } else {
+                }
+                else {
                     mAuth.createUserWithEmailAndPassword(em, pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -59,6 +68,13 @@ public class LoginActivity extends AppCompatActivity {
                                 userModel.setPassword(pass);
                                 userModel.setId(id);
                                 databaseReference.child(id).setValue(userModel);
+                                SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("KEY_FN",em);
+                                editor.putString("KEY_LN",pass);
+                                editor.commit();
+                                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                                startActivity(i);
                             }
                         }
                     });
@@ -66,6 +82,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this, SignInActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 }

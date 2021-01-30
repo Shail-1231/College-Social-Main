@@ -1,9 +1,12 @@
 package com.myapp.collegesocial;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,9 +31,12 @@ import androidx.appcompat.widget.Toolbar;
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Toolbar toolbar;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
+    TextView name;
+    private String strEmail;
+    private String strPassword;
+    private String strName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,13 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
         navigationView = findViewById(R.id.nav_view);
         drawerLayout = findViewById(R.id.drawer_layout);
+        name = findViewById(R.id.tv_name_nav);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
+        strName = sharedPreferences.getString("KEY_Name", "");
+        strEmail = sharedPreferences.getString("KEY_Email", "");
+        strPassword = sharedPreferences.getString("KEY_Password", "");
+
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
                 toolbar, R.string.nav_app_bar_open_drawer_description,
@@ -50,6 +63,12 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
 
         navigationView.setNavigationItemSelectedListener(this);
+        HomeFragment fragment = new HomeFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame, fragment);
+        fragmentTransaction.commit();
+
+
 
     }
 
@@ -67,6 +86,19 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         } else if (id == R.id.nav_about_us) {
 
             fragment = new AboutUsFragment();
+        }else if (id == R.id.nav_logout){
+
+            SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove("KEY_Name");
+            editor.remove("KEY_Email");
+            editor.remove("KEY_Password");
+            editor.commit();
+
+
+            Intent i = new Intent(NavigationDrawerActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
         }
 
         if (fragment != null) {
