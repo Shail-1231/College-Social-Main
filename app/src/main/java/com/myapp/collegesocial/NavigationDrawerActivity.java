@@ -53,6 +53,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         strName = sharedPreferences.getString("KEY_Name", "");
         strEmail = sharedPreferences.getString("KEY_Email", "");
         strPassword = sharedPreferences.getString("KEY_Password", "");
+       // name.setText(strName);
 
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
@@ -67,8 +68,6 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
-
-
 
     }
 
@@ -93,7 +92,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
             editor.remove("KEY_Name");
             editor.remove("KEY_Email");
             editor.remove("KEY_Password");
-            editor.commit();
+            editor.apply();
 
 
             Intent i = new Intent(NavigationDrawerActivity.this, LoginActivity.class);

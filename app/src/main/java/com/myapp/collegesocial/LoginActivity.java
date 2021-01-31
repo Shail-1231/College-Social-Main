@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
     Button signUp, signIn;
-    int flag = 0;
+    boolean error = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         signUp = findViewById(R.id.btn_login_signUp);
         signIn = findViewById(R.id.btn_login_signIn);
 
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
 
@@ -52,11 +53,30 @@ public class LoginActivity extends AppCompatActivity {
                 String em = email.getText().toString();
                 String pass = password.getText().toString();
 
+                if (nm.trim().length() < 2) {
+                    Toast.makeText(LoginActivity.this, "Enter name again", Toast.LENGTH_LONG).show();
+                    error = true;
+                } else {
+                    error = false;
+                }
+
+                if (em.trim().length() < 10) {
+                    Toast.makeText(LoginActivity.this, "Enter email again", Toast.LENGTH_LONG).show();
+                    error = true;
+                } else {
+                    error = false;
+                }
 
                 if (pass.length() < 5) {
                     Toast.makeText(LoginActivity.this, "Enter password more than 5 characters", Toast.LENGTH_LONG).show();
+                    error = true;
+                } else {
+                    error = false;
                 }
-                else {
+
+                if (error) {
+                    Toast.makeText(LoginActivity.this, "Enter credentials again", Toast.LENGTH_LONG).show();
+                } else {
                     mAuth.createUserWithEmailAndPassword(em, pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -68,10 +88,10 @@ public class LoginActivity extends AppCompatActivity {
                                 userModel.setPassword(pass);
                                 userModel.setId(id);
                                 databaseReference.child(id).setValue(userModel);
-                                SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
+                                SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("KEY_FN",em);
-                                editor.putString("KEY_LN",pass);
+                                editor.putString("KEY_FN", em);
+                                editor.putString("KEY_LN", pass);
                                 editor.commit();
                                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(i);
