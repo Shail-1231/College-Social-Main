@@ -72,7 +72,7 @@ public class SignInActivity extends AppCompatActivity {
                                     editor.commit();
 
 
-                                    Intent i = new Intent(SignInActivity.this, HomeActivity.class);
+                                    Intent i = new Intent(SignInActivity.this, NavigationDrawerActivity.class);
                                     startActivity(i);
                                     finish();
 

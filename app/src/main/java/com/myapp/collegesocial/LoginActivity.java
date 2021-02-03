@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("KEY_FN", em);
                                 editor.putString("KEY_LN", pass);
                                 editor.commit();
-                                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                                Intent i = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
                                 startActivity(i);
                             }
                         }
