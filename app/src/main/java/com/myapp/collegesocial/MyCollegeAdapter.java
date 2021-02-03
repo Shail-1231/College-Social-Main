@@ -59,13 +59,16 @@ public class MyCollegeAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 if (position == 0) {
-                    college = new String[]{"Art and culture", "Sports and fitness", "Technical and management", "Extra"};
+                    college = new String[]{"Art and Culture", "Sports and Fitness", "Technical and Management", "Extra"};
                     Intent i = new Intent(context, TabActivity.class);
                     i.putExtra("activities", college);
                     context.startActivity(i);
                 }
                 else if(position == 1){
                     college = new String[]{"Art and culture", "Sports and fitness"};
+                    Intent i = new Intent(context, TabActivity.class);
+                    i.putExtra("activities", college);
+                    context.startActivity(i);
                     }
             }
         });
