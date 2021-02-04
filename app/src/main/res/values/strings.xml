@@ -14,4 +14,6 @@
 
     <string name="about_us">Follow us on instagram for regular updates. DM for suggestions regarding the application. You can even mail us at projectcsoc@gmail.com.</string>
     <string name="insta">https://instagram.com/collegesocials?igshid=1miwj8g53917n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
