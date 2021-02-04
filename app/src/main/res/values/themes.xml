@@ -14,6 +14,8 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!-- Primary textcolor -->
+        <item name="android:textColor">#ffffff</item>
 
     </style>
 
