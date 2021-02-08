@@ -63,13 +63,22 @@ public class MyCollegeAdapter extends BaseAdapter {
                     Intent i = new Intent(context, TabActivity.class);
                     i.putExtra("activities", college);
                     context.startActivity(i);
-                }
-                else if(position == 1){
+                } else if (position == 1) {
                     college = new String[]{"Art and culture", "Sports and fitness"};
                     Intent i = new Intent(context, TabActivity.class);
                     i.putExtra("activities", college);
                     context.startActivity(i);
-                    }
+                } else if (position == 2) {
+                    college = new String[]{"Art and culture", "Sports and Adventure"};
+                    Intent i = new Intent(context, TabActivity.class);
+                    i.putExtra("activities", college);
+                    context.startActivity(i);
+                } else if (position == 3) {
+                    college = new String[]{"Social and Culture", "Sciences and Technical", "Sports Club"};
+                    Intent i = new Intent(context, TabActivity.class);
+                    i.putExtra("activities", college);
+                    context.startActivity(i);
+                }
             }
         });
         return convertView;

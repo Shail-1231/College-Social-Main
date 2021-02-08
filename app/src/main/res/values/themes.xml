@@ -24,6 +24,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="CustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
     <style name="Theme.CollegeSocial.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CollegeSocial.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
