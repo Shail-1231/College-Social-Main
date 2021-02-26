@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +29,7 @@ public class SignInActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
+    TextView forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +38,20 @@ public class SignInActivity extends AppCompatActivity {
 
         email = findViewById(R.id.edt_email_signIn);
         password = findViewById(R.id.edt_password_signIn);
+        forgotPassword = findViewById(R.id.tv_sign_in_forgot_password);
         signIn = findViewById(R.id.btn_signIn_signIn);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
         mAuth = FirebaseAuth.getInstance();
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SignInActivity.this, ForgotPasswordActivity.class);
+                startActivity(i);
+            }
+        });
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
