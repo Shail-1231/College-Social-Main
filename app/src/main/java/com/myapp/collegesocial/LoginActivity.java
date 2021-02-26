@@ -81,20 +81,33 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                String id = mAuth.getUid();
-                                UserModel userModel = new UserModel();
-                                userModel.setEmail(em);
-                                userModel.setName(nm);
-                                userModel.setPassword(pass);
-                                userModel.setId(id);
-                                databaseReference.child(id).setValue(userModel);
-                                SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("KEY_FN", em);
-                                editor.putString("KEY_LN", pass);
-                                editor.commit();
-                                Intent i = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
-                                startActivity(i);
+                                mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+
+                                        if (task.isSuccessful()) {
+                                            String id = mAuth.getUid();
+                                            UserModel userModel = new UserModel();
+                                            userModel.setEmail(em);
+                                            userModel.setName(nm);
+                                            userModel.setPassword(pass);
+                                            userModel.setId(id);
+                                            databaseReference.child(id).setValue(userModel);
+                                            SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                                            editor.putString("KEY_FN", em);
+                                            editor.putString("KEY_LN", pass);
+                                            editor.commit();
+                                            Toast.makeText(LoginActivity.this, "Please check your email for verification!!!", Toast.LENGTH_LONG).show();
+                                        } else {
+                                            Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+
+                                    }
+                                });
+
+//                                Intent i = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
+//                                startActivity(i);
                             }
                         }
                     });

@@ -54,37 +54,43 @@ public class SignInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            String uid = mAuth.getUid();
-                            databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (mAuth.getCurrentUser().isEmailVerified()) {
+                                String uid = mAuth.getUid();
+                                databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                    UserModel userModel = snapshot.getValue(UserModel.class);
-                                    String name = userModel.getName();
-                                    String email = userModel.getEmail();
-                                    String password = userModel.getPassword();
+                                        UserModel userModel = snapshot.getValue(UserModel.class);
+                                        String name = userModel.getName();
+                                        String email = userModel.getEmail();
+                                        String password = userModel.getPassword();
 
-                                    SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("KEY_Name", name);
-                                    editor.putString("KEY_Email", email);
-                                    editor.putString("KEY_Password", password);
-                                    editor.commit();
+                                        SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("KEY_Name", name);
+                                        editor.putString("KEY_Email", email);
+                                        editor.putString("KEY_Password", password);
+                                        editor.commit();
 
 
-                                    Intent i = new Intent(SignInActivity.this, NavigationDrawerActivity.class);
-                                    startActivity(i);
-                                    finish();
+                                        Intent i = new Intent(SignInActivity.this, NavigationDrawerActivity.class);
+                                        startActivity(i);
+                                        finish();
 
-                                }
+                                    }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
 
-                                }
-                            });
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }
+                            else {
+                                Toast.makeText(SignInActivity.this, "Please verify email address!!!", Toast.LENGTH_LONG).show();
+                            }
                         } else {
-                            Toast.makeText(SignInActivity.this, "The user is not registered", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
