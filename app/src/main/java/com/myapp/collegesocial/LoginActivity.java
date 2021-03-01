@@ -42,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         signUp = findViewById(R.id.btn_login_signUp);
         signIn = findViewById(R.id.btn_login_signIn);
 
-
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
 
