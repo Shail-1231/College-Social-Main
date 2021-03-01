@@ -18,7 +18,8 @@
         android:text="Welcome Back To"
         android:textColor="#fff"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:layout_width="match_parent"
@@ -71,19 +72,19 @@
         android:textSize="20sp"
         tools:ignore="HardcodedText,RtlHardcoded" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/btn_signIn_signIn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:background="@drawable/edt_bg"
+        android:background="@drawable/button_bg"
         android:fontFamily="@font/michroma"
         android:text="Sign In"
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textStyle="bold"
-        app:backgroundTint="#DB1D45"
+        android:textSize="20sp"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>
