@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
+    android:forceDarkAllowed="false"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".LoginActivity">
@@ -101,9 +102,9 @@
                     android:background="@drawable/button_bg"
                     android:fontFamily="@font/michroma"
                     android:text="Sign Up"
-                    android:textSize="19sp"
                     android:textAllCaps="false"
                     android:textColor="#fff"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 
@@ -112,12 +113,12 @@
                     android:layout_width="37dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="19sp"
                     android:background="@drawable/button_bg"
                     android:fontFamily="@font/michroma"
                     android:text="Sign In"
                     android:textAllCaps="false"
                     android:textColor="#fff"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
+    android:forceDarkAllowed="false"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".LoginActivity">
@@ -51,6 +52,7 @@
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColorHint="#040000"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
 
@@ -67,6 +69,7 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
+                android:textColorHint="#040000"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
 
@@ -82,6 +85,7 @@
                 android:hint="Password (+5 characters)"
                 android:inputType="textPassword"
                 android:padding="10dp"
+                android:textColorHint="#040000"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
 
