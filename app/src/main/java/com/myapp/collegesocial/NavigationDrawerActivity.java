@@ -4,27 +4,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Menu;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.myapp.collegesocial.ui.aboutus.AboutUsFragment;
 import com.myapp.collegesocial.ui.gallery.GalleryFragment;
 import com.myapp.collegesocial.ui.home.HomeFragment;
-import com.myapp.collegesocial.ui.slideshow.SlideshowFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -53,7 +44,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         strName = sharedPreferences.getString("KEY_Name", "");
         strEmail = sharedPreferences.getString("KEY_Email", "");
         strPassword = sharedPreferences.getString("KEY_Password", "");
-       // name.setText(strName);
+        // name.setText(strName);
 
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
@@ -79,15 +70,16 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         Fragment fragment = null;
         if (id == R.id.nav_home) {
             fragment = new HomeFragment();
+
         } else if (id == R.id.nav_colleges) {
 
             fragment = new GalleryFragment();
         } else if (id == R.id.nav_about_us) {
-
             fragment = new AboutUsFragment();
-        }else if (id == R.id.nav_logout){
 
-            SharedPreferences sharedPreferences = getSharedPreferences("MYAPP",MODE_PRIVATE);
+        } else if (id == R.id.nav_logout) {
+
+            SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.remove("KEY_Name");
             editor.remove("KEY_Email");

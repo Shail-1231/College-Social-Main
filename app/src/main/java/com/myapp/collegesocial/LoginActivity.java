@@ -85,12 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "The user already exists!!!", Toast.LENGTH_LONG).show();
 
 
-
 //                                Intent i = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
 //                                startActivity(i);
-                            }
-                            else
-                            {
+                            } else {
                                 mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                     @Override
