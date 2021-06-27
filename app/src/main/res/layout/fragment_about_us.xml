@@ -47,9 +47,9 @@
                 android:fontFamily="@font/michroma"
                 android:gravity="center"
                 android:padding="30dp"
-                android:text="ABCD"
+                android:text="College social aims to bring different activities of different colleges under the same roof. Our aim is better accessibility to activities of different college and more participation of students in those activities."
                 android:textColor="#fff"
-                android:textSize="10sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView

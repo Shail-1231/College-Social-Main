@@ -1,18 +1,16 @@
 package com.myapp.collegesocial.ui.aboutus;
 
-import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.myapp.collegesocial.R;
 
@@ -31,7 +29,7 @@ public class AboutUsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                String url = (String)v.getTag();
+                String url = (String) v.getTag();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse(url));
