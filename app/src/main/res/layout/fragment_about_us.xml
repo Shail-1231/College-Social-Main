@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#212121"
+    android:background="#191414"
     tools:context=".ui.aboutus.AboutUsFragment">
 
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#212121">
+        android:background="#191414">
 
         <LinearLayout
             android:layout_width="wrap_content"

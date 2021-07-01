@@ -7,7 +7,8 @@
     android:background="#191414"
     android:forceDarkAllowed="false"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:paddingTop="60dp">
     <ImageView
         android:id="@+id/logo_splash"
         android:layout_width="100dp"
@@ -121,9 +122,8 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button_bg"
-            android:fontFamily="@font/michroma"
             android:text="Sign Up"
-            android:textAllCaps="false"
+            android:textAllCaps="true"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -148,9 +148,8 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:background="@drawable/button_bg"
-            android:fontFamily="@font/michroma"
             android:text="Sign In"
-            android:textAllCaps="false"
+            android:textAllCaps="true"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold"
