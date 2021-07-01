@@ -101,7 +101,6 @@
                 android:padding="5dp"
                 android:textColorHint="#040000"
                 android:textSize="20sp"
-                android:focusable="true"
                 tools:ignore="HardcodedText"
                 android:layout_gravity="center"/>
 
