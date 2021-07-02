@@ -12,11 +12,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     ImageView logo;
     TextView title;
-    int time = 2700;
+    int time = 1700;
     Animation topAnim, bottomAnim;
     private String strPassword;
     private String strEmail;
@@ -29,6 +31,8 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         GIFImageView gifImageView = findViewById(R.id.gif_title);
         gifImageView.setGifImageResource(R.drawable.source);
+
+
         topAnim = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.bottom_animation);
 

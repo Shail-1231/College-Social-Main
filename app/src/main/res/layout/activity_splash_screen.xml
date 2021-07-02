@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191414"
+    android:background="#212121"
     android:orientation="vertical"
     tools:context=".SplashScreenActivity">
 
@@ -15,16 +15,23 @@
         android:layout_marginTop="50dp"
         android:src="@drawable/logo"
         />
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/logo_splash"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <com.myapp.collegesocial.GIFImageView
+            android:id="@+id/gif_title"
+            android:layout_width="175dp"
+            android:layout_height="65dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="30dp" />
+    </LinearLayout>
 
 
-   <com.myapp.collegesocial.GIFImageView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true"
-       android:layout_centerHorizontal="true"
-       android:id="@+id/gif_title"
-
-       />
 
 
     <!-- <TextView
