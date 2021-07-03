@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191414"
+    android:background="#212121"
     android:orientation="vertical"
     android:paddingTop="60dp"
     tools:context=".SignInActivity">

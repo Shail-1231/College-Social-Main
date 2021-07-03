@@ -9,25 +9,22 @@
 
     <ImageView
         android:id="@+id/logo_splash"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/logo"
         tools:ignore="ContentDescription" />
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_below="@+id/logo_splash"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
 
-        <com.myapp.collegesocial.GIFImageView
-            android:id="@+id/gif_title"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="30dp" />
-    </LinearLayout>
+    <com.myapp.collegesocial.GIFImageView
+        android:id="@+id/gif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="-27dp"
+        android:layout_below="@+id/logo_splash"/>
+
 
 
 
