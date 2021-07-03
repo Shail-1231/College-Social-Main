@@ -1,23 +1,18 @@
 package com.myapp.collegesocial;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.airbnb.lottie.LottieAnimationView;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
     ImageView logo;
-    TextView title;
     int time = 1700;
     Animation topAnim, bottomAnim;
     private String strPassword;
@@ -47,20 +42,17 @@ public class SplashScreenActivity extends AppCompatActivity {
         strPassword = sharedPreferences.getString("KEY_Password", "");
 
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        new Handler().postDelayed(() -> {
 
 
-                Intent i;
-                if (strEmail.equals("") && strPassword.equals("")) {
-                    i = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                } else {
-                    i = new Intent(SplashScreenActivity.this, NavigationDrawerActivity.class);
-                }
-                startActivity(i);
-                finish();
+            Intent i;
+            if (strEmail.equals("") && strPassword.equals("")) {
+                i = new Intent(SplashScreenActivity.this, LoginActivity.class);
+            } else {
+                i = new Intent(SplashScreenActivity.this, NavigationDrawerActivity.class);
             }
+            startActivity(i);
+            finish();
         }, time);
     }
 }

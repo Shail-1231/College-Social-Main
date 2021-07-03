@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,8 @@
     android:forceDarkAllowed="false"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    tools:ignore="UnusedAttribute">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,33 +28,35 @@
                 android:text="Welcome to"
                 android:textColor="#fff"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
                 android:fontFamily="@font/michroma"
                 android:gravity="center_horizontal"
                 android:text="@string/app_name"
                 android:textColor="#fff"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_marginTop="-10dp"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edt_name_login"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="50dp"
+                android:autofillHints=""
                 android:background="@drawable/edt_bg"
                 android:drawableStart="@drawable/ic_baseline_person_24"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="20dp"
                 android:hint="Name"
-                android:layout_gravity="center"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColorHint="#040000"
+                android:textColorHint="#4A000000"
                 android:textSize="16sp"
                 tools:ignore="HardcodedText" />
 
@@ -63,16 +65,17 @@
                 android:id="@+id/edt_email_login"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:autofillHints=""
                 android:background="@drawable/edt_bg"
                 android:drawableStart="@drawable/ic_baseline_email_24"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
                 android:drawablePadding="20dp"
                 android:hint="Email"
-                android:layout_gravity="center"
                 android:inputType="textEmailAddress"
                 android:padding="5dp"
-                android:textColorHint="#040000"
+                android:textColorHint="#4A000000"
                 android:textSize="16sp"
                 tools:ignore="HardcodedText" />
 
@@ -80,19 +83,20 @@
                 android:id="@+id/edt_password_login"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:autofillHints=""
                 android:background="@drawable/edt_bg"
                 android:drawableStart="@drawable/ic_baseline_lock_24"
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="20dp"
+                android:focusable="true"
                 android:hint="Password (+5 characters)"
                 android:inputType="textPassword"
                 android:padding="5dp"
-                android:textColorHint="#040000"
+                android:textColorHint="#4A000000"
                 android:textSize="16sp"
-                android:focusable="true"
-                tools:ignore="HardcodedText"
-                android:layout_gravity="center"/>
+                tools:ignore="HardcodedText" />
 
         </LinearLayout>
     </ScrollView>
@@ -112,13 +116,13 @@
             android:layout_weight="1"
             android:background="@drawable/button_bg"
             android:fontFamily="@font/michroma"
+            android:gravity="center"
             android:text="Sign Up"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText"
-            android:gravity="center"/>
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="match_parent"
@@ -129,14 +133,16 @@
             android:text="Or"
             android:textColor="#fff"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
         <android.widget.Button
             android:id="@+id/btn_login_signIn"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
             android:background="@drawable/button_bg"
             android:fontFamily="@font/michroma"
             android:text="Sign In"
@@ -144,8 +150,7 @@
             android:textColor="#fff"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText"
-            android:layout_marginTop="5dp" />
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 </LinearLayout>

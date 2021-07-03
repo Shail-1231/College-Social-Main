@@ -3,17 +3,12 @@ package com.myapp.collegesocial;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     Button signUp, signIn;
     boolean error = false;
-    int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,89 +37,75 @@ public class LoginActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
 
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nm = name.getText().toString();
-                String em = email.getText().toString();
-                String pass = password.getText().toString();
+        signUp.setOnClickListener(v -> {
+            String nm = name.getText().toString();
+            String em = email.getText().toString();
+            String pass = password.getText().toString();
 
-                if (nm.trim().length() < 2) {
-                    Toast.makeText(LoginActivity.this, "Enter name again", Toast.LENGTH_LONG).show();
-                    error = true;
-                } else {
-                    error = false;
-                }
+            if (nm.trim().length() < 2) {
+                Toast.makeText(LoginActivity.this, "Enter name again", Toast.LENGTH_LONG).show();
+                error = true;
+            } else {
+                error = false;
+            }
 
-                if (em.trim().length() < 10) {
-                    Toast.makeText(LoginActivity.this, "Enter email again", Toast.LENGTH_LONG).show();
-                    error = true;
-                } else {
-                    error = false;
-                }
+            if (em.trim().length() < 10) {
+                Toast.makeText(LoginActivity.this, "Enter email again", Toast.LENGTH_LONG).show();
+                error = true;
+            } else {
+                error = false;
+            }
 
-                if (pass.length() < 5) {
-                    Toast.makeText(LoginActivity.this, "Enter password more than 5 characters", Toast.LENGTH_LONG).show();
-                    error = true;
-                } else {
-                    error = false;
-                }
+            if (pass.length() < 5) {
+                Toast.makeText(LoginActivity.this, "Enter password more than 5 characters", Toast.LENGTH_LONG).show();
+                error = true;
+            } else {
+                error = false;
+            }
 
-                if (error) {
-                    Toast.makeText(LoginActivity.this, "Enter credentials again", Toast.LENGTH_LONG).show();
-                } else {
-                    mAuth.createUserWithEmailAndPassword(em, pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (!task.isSuccessful()) {
-                                Toast.makeText(LoginActivity.this, "The user already exists!!!", Toast.LENGTH_LONG).show();
+            if (error) {
+                Toast.makeText(LoginActivity.this, "Enter credentials again", Toast.LENGTH_LONG).show();
+            } else {
+                mAuth.createUserWithEmailAndPassword(em, pass).addOnCompleteListener(LoginActivity.this, task -> {
+                    if (!task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "The user already exists!!!", Toast.LENGTH_LONG).show();
 
 
 //                                Intent i = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
 //                                startActivity(i);
+                    } else {
+                        mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(task1 -> {
+
+                            if (task1.isSuccessful()) {
+                                String id = mAuth.getUid();
+                                UserModel userModel = new UserModel();
+                                userModel.setEmail(em);
+                                userModel.setName(nm);
+                                userModel.setPassword(pass);
+                                userModel.setId(id);
+                                databaseReference.child(id).setValue(userModel);
+                                SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("KEY_FN", em);
+                                editor.putString("KEY_LN", pass);
+                                editor.apply();
+                                Toast.makeText(LoginActivity.this, "Please check your email for verification!!!", Toast.LENGTH_LONG).show();
+                                name.setText("");
+                                email.setText("");
+                                password.setText("");
                             } else {
-                                mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-
-                                        if (task.isSuccessful()) {
-                                            String id = mAuth.getUid();
-                                            UserModel userModel = new UserModel();
-                                            userModel.setEmail(em);
-                                            userModel.setName(nm);
-                                            userModel.setPassword(pass);
-                                            userModel.setId(id);
-                                            databaseReference.child(id).setValue(userModel);
-                                            SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
-                                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                                            editor.putString("KEY_FN", em);
-                                            editor.putString("KEY_LN", pass);
-                                            editor.commit();
-                                            Toast.makeText(LoginActivity.this, "Please check your email for verification!!!", Toast.LENGTH_LONG).show();
-                                            name.setText("");
-                                            email.setText("");
-                                            password.setText("");
-                                        } else {
-                                            Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    }
-
-                                });
+                                Toast.makeText(LoginActivity.this, task1.getException().getMessage(), Toast.LENGTH_LONG).show();
                             }
-                        }
-                    });
-                }
+
+                        });
+                    }
+                });
             }
         });
 
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, SignInActivity.class);
-                startActivity(i);
-            }
+        signIn.setOnClickListener(v -> {
+            Intent i = new Intent(LoginActivity.this, SignInActivity.class);
+            startActivity(i);
         });
 
     }

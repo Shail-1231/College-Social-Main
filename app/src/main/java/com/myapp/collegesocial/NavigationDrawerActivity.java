@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -24,10 +25,11 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
     NavigationView navigationView;
     DrawerLayout drawerLayout;
-    TextView name;
+    TextView name, email;
     private String strEmail;
     private String strPassword;
     private String strName;
+    View header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +40,17 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
         navigationView = findViewById(R.id.nav_view);
         drawerLayout = findViewById(R.id.drawer_layout);
-        name = findViewById(R.id.tv_name_nav);
+        header = navigationView.getHeaderView(0);
+        name = header.findViewById(R.id.tv_name_nav);
+        email = header.findViewById(R.id.tv_email_nav);
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("MYAPP", MODE_PRIVATE);
         strName = sharedPreferences.getString("KEY_Name", "");
         strEmail = sharedPreferences.getString("KEY_Email", "");
         strPassword = sharedPreferences.getString("KEY_Password", "");
-        // name.setText(strName);
+        name.setText(strName);
+        email.setText(strEmail);
 
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
