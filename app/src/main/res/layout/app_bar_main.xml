@@ -23,11 +23,13 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/michroma"
                 android:gravity="center"
+                android:foregroundGravity="center_horizontal"
                 android:layout_marginRight="70dp"
                 android:text="@string/app_name"
                 android:textColor="#fff"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginEnd="70dp" />
 
         </androidx.appcompat.widget.Toolbar>
 

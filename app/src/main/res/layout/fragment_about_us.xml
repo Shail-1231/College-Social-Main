@@ -24,6 +24,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="300dp"
                 android:layout_height="45dp"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
                 android:background="@color/pastelcolor1"
                 app:cardCornerRadius="10dp">
@@ -38,7 +39,8 @@
                     android:text="About Us"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
             </androidx.cardview.widget.CardView>
 
 
@@ -47,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:text="College social aims to bring different activities of different colleges under the same roof. Our aim is better accessibility to activities of different college and more participation of students in those activities."
+                android:text="@string/college_social_aims_to_bring_different_activities_of_different_colleges_under_the_same_roof_our_aim_is_better_accessibility_to_activities_of_different_college_and_more_participation_of_students_in_those_activities"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:textSize="16sp" />
@@ -57,12 +59,14 @@
                 android:scaleType="fitXY"
                 android:layout_marginTop="-70dp"
                 android:layout_gravity="center"
-                android:src="@drawable/avatars"/>
+                android:src="@drawable/avatars"
+                tools:ignore="ContentDescription" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="300dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="40dp"
                 app:cardCornerRadius="10dp"
                 android:background="@color/pastelcolor1">
 
@@ -76,7 +80,8 @@
                     android:text="Contact Us"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -98,7 +103,8 @@
                 android:focusable="true"
                 android:src="@drawable/instagram"
                 android:layout_marginTop="20dp"
-                android:tag="@string/insta" />
+                android:tag="@string/insta"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
 
     </ScrollView>
