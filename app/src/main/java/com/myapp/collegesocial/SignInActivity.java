@@ -1,5 +1,6 @@
 package com.myapp.collegesocial;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class SignInActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
+    Dialog dialog;
     TextView forgotPassword;
 
     @Override
@@ -36,6 +38,7 @@ public class SignInActivity extends AppCompatActivity {
         password = findViewById(R.id.edt_password_signIn);
         forgotPassword = findViewById(R.id.tv_sign_in_forgot_password);
         signIn = findViewById(R.id.btn_signIn_signIn);
+        dialog = new Dialog(this);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
@@ -47,7 +50,8 @@ public class SignInActivity extends AppCompatActivity {
         });
 
         signIn.setOnClickListener(v -> {
-
+//            dialog.setContentView(R.layout.popup);
+//            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             String em = email.getText().toString();
             String pass = password.getText().toString();
             if (em.trim().length() == 0) {
@@ -93,7 +97,8 @@ public class SignInActivity extends AppCompatActivity {
                             Toast.makeText(SignInActivity.this, "Please verify email address!!!", Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                        //Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
             }

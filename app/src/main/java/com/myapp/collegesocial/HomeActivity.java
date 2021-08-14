@@ -1,10 +1,9 @@
 package com.myapp.collegesocial;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.os.Bundle;
 import android.widget.GridView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -19,10 +18,6 @@ public class HomeActivity extends AppCompatActivity {
     int[] blurImages = {R.drawable.aublur, R.drawable.nirmablur, R.drawable.ljblur, R.drawable.pdpublur};
     SliderView sliderView;
     int[] mainEventImages = {R.drawable.convocation, R.drawable.ingenium};
-    String[] clubAu = {"Art and culture", "Sports and fitness", "Technical and management", "Extra"};
-    String[] clubNirma = {};
-    String[] clubPDPU = {};
-    String[] clubLJ = {};
     SliderAdp sliderAdp;
 
 

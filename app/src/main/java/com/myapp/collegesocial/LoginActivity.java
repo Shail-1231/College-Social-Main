@@ -1,5 +1,6 @@
 package com.myapp.collegesocial;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
+    Dialog dialog;
     Button signUp, signIn;
     boolean error = false;
 
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         signUp = findViewById(R.id.btn_login_signUp);
         signIn = findViewById(R.id.btn_login_signIn);
+        dialog = new Dialog(this);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");

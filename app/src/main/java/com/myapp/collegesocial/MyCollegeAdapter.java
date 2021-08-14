@@ -10,9 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import com.myapp.collegesocial.ui.home.HomeFragment;
-
 import java.util.ArrayList;
 
 public class MyCollegeAdapter extends BaseAdapter {
@@ -62,21 +59,25 @@ public class MyCollegeAdapter extends BaseAdapter {
                     college = new String[]{"Art and Culture", "Sports and Fitness", "Technical and Management", "Extra"};
                     Intent i = new Intent(context, TabActivity.class);
                     i.putExtra("activities", college);
+                    i.putExtra("college_name", "Ahmedabad University");
                     context.startActivity(i);
                 } else if (position == 1) {
                     college = new String[]{"Art and culture", "Sports and fitness"};
                     Intent i = new Intent(context, TabActivity.class);
                     i.putExtra("activities", college);
+                    i.putExtra("college_name", "Nirma University");
                     context.startActivity(i);
                 } else if (position == 2) {
                     college = new String[]{"Art and culture", "Sports and Adventure"};
                     Intent i = new Intent(context, TabActivity.class);
                     i.putExtra("activities", college);
+                    i.putExtra("college_name", "LJ University");
                     context.startActivity(i);
                 } else if (position == 3) {
                     college = new String[]{"Social and Culture", "Sciences and Technical", "Sports Club"};
                     Intent i = new Intent(context, TabActivity.class);
                     i.putExtra("activities", college);
+                    i.putExtra("college_name", "PDPU");
                     context.startActivity(i);
                 }
             }
